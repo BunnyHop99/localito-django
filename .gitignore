@@ -13,19 +13,24 @@ venv/
 env/
 
 # ────────────────────────────────
-# CONFIGURACIONES Y SECRETOS
+# ENV FILES (pero NO .env.example)
 # ────────────────────────────────
-*.env
-.env*
-*.ini
-local_settings.py
+.env
+.env.*
+!.env.example
 
-# Base de datos SQLite
+# Archivos de configuración sensibles
+local_settings.py
+*.ini
+
+# ────────────────────────────────
+# BASE DE DATOS SQLITE
+# ────────────────────────────────
 db.sqlite3
 db.sqlite3-journal
 
 # ────────────────────────────────
-# ARCHIVOS DE COMPILACIÓN
+# ARCHIVOS DE BUILD
 # ────────────────────────────────
 build/
 develop-eggs/
@@ -55,12 +60,10 @@ logs/
 staticfiles/
 static/
 media/
-
-# Django collectstatic
 collected_static/
 
 # ────────────────────────────────
-# IDEs
+# IDEs / EDITORES
 # ────────────────────────────────
 .vscode/
 .idea/
@@ -83,7 +86,7 @@ docker-compose.override.yml
 *.map
 
 # ────────────────────────────────
-# COVERAGE / TESTS
+# COVERAGE / TESTING
 # ────────────────────────────────
 htmlcov/
 .tox/
@@ -94,10 +97,12 @@ htmlcov/
 pytest_cache/
 
 # ────────────────────────────────
-# JUPYTER NOTEBOOKS
+# JUPYTER / NOTEBOOKS
 # ────────────────────────────────
 .ipynb_checkpoints/
 
-# SYSTEM FILES
+# ────────────────────────────────
+# SISTEMA
+# ────────────────────────────────
 .DS_Store
 Thumbs.db
