@@ -1,0 +1,48 @@
+# Django
+Django
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+django-filter==23.5
+
+# Base de datos
+psycopg2-binary==2.9.9
+dj-database-url==2.1.0
+
+# Autenticación
+djangorestframework-simplejwt==5.3.1
+djoser==2.2.2
+
+# Validación y seguridad
+python-decouple==3.8
+django-environ==0.11.2
+
+# Utilidades
+Pillow==10.2.0
+python-dateutil==2.8.2
+
+# API Documentation
+drf-yasg==1.21.7
+
+# Celery (para tareas asíncronas)
+celery==5.3.6
+redis==5.0.1
+
+# Excel/CSV
+openpyxl==3.1.2
+pandas==2.2.0
+
+# PDF
+reportlab==4.0.9
+weasyprint==60.2
+
+# Facturación
+requests==2.31.0
+
+# Testing
+pytest==7.4.4
+pytest-django==4.7.0
+factory-boy==3.3.0
+
+# Producción
+gunicorn==21.2.0
+whitenoise==6.6.0
