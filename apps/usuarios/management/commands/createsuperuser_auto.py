@@ -17,8 +17,3 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS(f'Superusuario "{username}" creado exitosamente'))
         else:
             self.stdout.write(self.style.WARNING(f'Superusuario "{username}" ya existe'))
-```
-
-Crea la estructura de carpetas:
-```
-apps/usuarios/management/commands/
