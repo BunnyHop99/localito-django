@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
     netcat-traditional \
-    dos2unix \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalar dependencias de Python
@@ -27,10 +26,11 @@ RUN mkdir -p /app/staticfiles /app/mediafiles
 
 EXPOSE 8000
 
-# Configurar entrypoint
-COPY ./entrypoint.sh /app/
-RUN dos2unix /app/entrypoint.sh || true
-RUN chmod +x /app/entrypoint.sh
-
-ENTRYPOINT ["/app/entrypoint.sh"]
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Ejecutar migraciones y servidor directamente
+CMD sh -c "echo 'Esperando PostgreSQL...' && \
+    while ! nc -z db 5432; do sleep 1; done && \
+    echo 'PostgreSQL listo!' && \
+    echo 'Ejecutando migraciones...' && \
+    python manage.py migrate && \
+    echo 'Iniciando servidor...' && \
+    python manage.py runserver 0.0.0.0:8000"                
